@@ -1,0 +1,184 @@
+{
+  "tenant": {
+    "tenant_id": "gea_habilitation_test",
+    "label": "GEA Habilitation Test",
+    "existing": true
+  },
+  "namespaces": [
+    {
+      "namespace_id": "main",
+      "description": "Namespace pour l'équipe cloud"
+    },
+    {
+      "namespace_id": "ptfdata",
+      "description": "Namespace technique Socle"
+    },
+    {
+      "namespace_id": "ptfdata.flowfactory.dev",
+      "description": "Namespace technique de la flow factory de développement"
+    },
+    {
+      "namespace_id": "ptfdata.resources.dev",
+      "description": "Namespace technique du déploiement controleur de développement"
+    },
+    {
+      "namespace_id": "ptfdata.variables.dev",
+      "description": "Namespace technique du variable updater de développement"
+    }  
+  ],
+  "roles": [
+    {
+      "name": "role-pipeline-launcher",
+      "description": "Rôle d'exécution pour les pipelines",
+      "permissions": [
+        {
+          "type": "EXECUTION",
+          "permissions": ["READ", "CREATE", "UPDATE"]
+        }
+      ]
+    },
+    {
+      "name": "role-pipeline-factory",
+      "description": "Rôle du service account de la flow factory",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ", "CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SECRET",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "APP",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "APPEXECUTION",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-ptf-deployer",
+      "description": "Rôle du service account du déploiement du socle",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-kv-store-updater",
+      "description": "Rôle du SA du variable updater du socle",
+      "permissions": [
+        {
+          "type": "KVSTORE",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SECRET",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-pf-executor",
+      "description": "Rôle d'exécution de la pipeline factory pour la CD des usages",
+      "permissions": [
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "READ", "UPDATE"]
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "group-cloud",
+      "description": "Groupe pour l'équipe cloud",
+      "namespace": "main"
+    }
+  ],
+  "service_accounts": [
+    {
+      "name": "sa-pipeline-factory",
+      "description": "SA de la pipeline factory",
+      "generate_token": true,
+      "token_description": "API Token SA de la pipeline factory",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-kv-store-updater",
+      "description": "SA du composant qui met à jour les variables d'environnement dans le  KV Store",
+      "generate_token": true,
+      "token_description": "API Token SA du composant qui met à jour les variables d'environnement dans le  KV Store",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-gitlab-deploy-ptf-dev",
+      "description": "SA des pipelines de déploiement de la pipeline factory",
+      "generate_token": true,
+      "token_description": "API Token SA des pipelines de déploiement de la pipeline factory",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-gitlab-usage-dev",
+      "description": "SA des pipelines de déploiement des usages pour appel à la pipeline factory",
+      "generate_token": true,
+      "token_description": "API Token SA des pipelines de déploiement des usages pour appel à la pipeline factory",
+      "token_max_age": "P365D"
+    }
+  ],
+  "bindings": [
+    {
+      "group": "group-cloud",
+      "namespace": "main",
+      "roles": ["role-pipeline-launcher"]
+    },
+    {
+      "service_account": "sa-gitlab-deploy-ptf-dev",
+      "namespace": "ptfdata.flowfactory.dev",
+      "roles": ["role-ptf-deployer"]
+    },
+    {
+      "service_account": "sa-gitlab-usage-dev",
+      "namespace": "ptfdata.flowfactory.dev",
+      "roles": ["role-pf-executor"]
+    },
+    {
+      "service_account": "sa-pipeline-factory",
+      "roles": ["role-pipeline-factory"]
+    },
+    {
+      "service_account": "sa-kv-store-updater",
+      "roles": ["role-kv-store-updater"]
+    }
+  ]
+}
+

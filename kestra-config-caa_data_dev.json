@@ -1,0 +1,698 @@
+{
+  "tenant": {
+    "tenant_id": "caa_data_dev",
+    "label": "CAA Data DEV"
+    
+  },
+
+  "namespaces": [
+    
+      {
+        "namespace_id": "ptfdata.flowfactory",
+        "description": ""
+      },
+        {
+        "namespace_id": "ptfdata.resources",
+        "description": ""
+      },
+        {
+        "namespace_id": "ptfdata.variables",
+        "description": ""
+      },
+       {
+        "namespace_id": "finact.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "fincpt.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "findam.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "eri.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "decdom.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "train.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "cliass.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domdsd.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domdfi.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domsin.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domcom.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domdip.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "domdsi.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "cacilh.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "caciac.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "cacipl.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "cacitl.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "acoret.tech",
+        "description": ""
+      },
+       {
+        "namespace_id": "acosp.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "acocli.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "findcg.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "previn.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "domdep.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "domdpr.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "tecerp.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "tecdom.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "tecemp.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "tecaco.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "tecact.tech",
+        "description": ""
+      },
+      {
+        "namespace_id": "fonact.tech",
+        "description": ""
+      }
+  
+  ],
+  "roles": [
+    {
+      "name": "Api-flowfactory",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ", "CREATE", "UPDATE", "DELETE"]
+        }
+      ]
+    },
+    {
+      "name": "data_consumer",
+      "description": "tooth2",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "data-domain-kv-store-updater",
+      "description": "Rôle permettant de mettre à jour le KV Store des domaines",
+      "permissions": [
+        {
+          "type": "KVSTORE",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        }
+      ]
+    },
+    {
+      "name": "executor_pipeline_factory",
+      "description": "Role Exec Pipeline Factory",
+      "permissions": [
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "READ", "UPDATE"]
+        }
+      ]
+    },
+    {
+      "name": "flow_kv_pipeline_factory",
+      "description": "Role de gestion des flow et du KV pour la pipeline factory",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["CREATE", "READ", "UPDATE", "DELETE"]
+        }
+      ]
+    },
+    {
+      "name": "G_ZOE_CCX_BIGDATA_MA",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ", "CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "ROLE",
+          "permissions": ["READ", "CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "SETTING",
+          "permissions": ["READ", "CREATE", "UPDATE", "DELETE"]
+        }
+  ]},
+    {
+      "name": "role-admin-tenant",
+      "description": "",
+      "permissions": [
+        {
+          "type": "IMPERSONATE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "USER",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "TENANT_ACCESS",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SERVICE_ACCOUNT",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-appops",
+      "description": "",
+      "permissions": [
+        {
+          "type": "GROUP",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "ROLE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "BINDING",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "AUDITLOG",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "USER",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "TENANT_ACCESS",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "GROUP_MEMBERSHIP",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+
+
+    {
+      "name": "role-audit-tenant",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "TEMPLATE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SECRET",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "GROUP",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "ROLE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "BINDING",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "AUDITLOG",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "BLUEPRINT",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SETTING",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "APP",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "APPEXECUTION",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "TEST",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "USER",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "TENANT_ACCESS",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SERVICE_ACCOUNT",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "INVITATION",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "GROUP_MEMBERSHIP",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-base",
+      "description": "Rôle de base pour tous les utilisateurs",
+      "permissions": [
+        {
+          "type": "EXECUTION",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "NAMESPACE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "APP",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "APPEXECUTION",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-data-engineer",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "UPDATE"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["READ", "CREATE", "UPDATE"]
+        }
+      ]
+    },
+    {
+      "name": "role-dev-socle",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["CREATE", "UPDATE", "DELETE"]
+        },
+        {
+          "type": "SECRET",
+          "permissions": ["CREATE", "UPDATE", "DELETE"]
+        }
+      ]
+    },
+
+    {
+      "name": "role-operator",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "UPDATE"]
+        },
+        {
+          "type": "KVSTORE",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "DASHBOARD",
+          "permissions": ["CREATE", "UPDATE", "READ"]
+        },
+        {
+          "type": "SECRET",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "SERVICE_ACCOUNT",
+          "permissions": ["READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-pipeline-launcher",
+      "description": "",
+      "permissions": [
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "UPDATE", "READ"]
+        }
+      ]
+    },
+    {
+      "name": "role-pipeline-owner",
+      "description": "",
+      "permissions": [
+        {
+          "type": "FLOW",
+          "permissions": ["READ"]
+        },
+        {
+          "type": "EXECUTION",
+          "permissions": ["CREATE", "UPDATE", "READ"]
+        }    
+      ]
+    }
+  ],
+    "groups": [
+    {
+      "name": "consumers_company",
+      "description": "test"
+    },
+    {
+      "name": "data-eng-chantier2",
+      "description": "data-eng-chantier2"
+    },
+    {
+      "name": "dev_api_flowfactory",
+      "description": ""
+    },
+    {
+      "name": "developpeurs",
+      "description": ""
+    },
+    {
+      "name": "pipeline-factory-exec",
+      "description": "",
+      "namespace": "tech"
+    }, 
+     {
+      "name": "gs_a_zoe_azure_gcp_caa_data_hprod_ptf_engineers",
+      "description": "",
+      "namespace": "ptfdata"
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_ptf_hprod_engineers",
+      "description": "",
+      "namespace": "ptfdata"
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_data_hprod_dataloading",
+      "description": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_data_hprod_nrt_all_testers",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_zoe_azure_gcp_caa_data_hprod_auditors",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_data_hprod_auditors",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_data_hprod_appops",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_data_hprod_secops",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_kestra_hprod_admins",
+      "description": "",
+      "namespace": ""
+    }, 
+    {
+      "name": "gs_a_caa01_azure_gcp_ops_hprod_admins",
+      "description": "",
+      "namespace": ""
+    },
+    {
+      "name": "pipeline-factory-flow-kv",
+      "description": "",
+      "namespace": "tech"
+    }
+  ],
+
+  "service_accounts": [
+    {
+      "name": "sa-flow-kv-pipeline-factory",
+      "description": "Permet de gérer flow & KV Store pour le pipeline factory",
+      "generate_token": true,
+      "token_description": "API Token Permet de gérer flow & KV Store pour le pipeline factory",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-flow-kv-data-domain",
+      "description": "Permet de gérer le KV Store des domaines data - Token interne Kestra",
+      "generate_token": true,
+      "token_description": "API Token Permet de gérer le KV Store des domaines data - Token interne Kestra",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-exec-pipeline-factory",
+      "description": "Permet l'execution de flow pour le pipeline factory",
+      "generate_token": true,
+      "token_description": "API Token Permet l'execution de flow pour le pipeline factory",
+      "token_max_age": "P365D"
+    },
+    {
+      "name": "sa-dev-flowfactory",
+      "description": "Interne Kestra",
+      "generate_token": true,
+      "token_description": "API Token Interne Kestra",
+      "token_max_age": "P365D"
+    }
+  ],
+  "bindings": [
+    {
+      "group": "pipeline-factory-flow-kv",
+      "roles": ["flow_kv_pipeline_factory"]
+    },
+    {
+      "group": "data-eng-chantier2",
+      "roles": ["role-operator", "Developer", "role-base", "role-dev-socle"]
+    },
+
+     {
+      "group": "gs_a_zoe_azure_gcp_caa_data_hprod_ptf_engineers",
+      "namespace": "ptfdata",
+      "roles": ["role-base", "role-operator", "role-dev-socle"]
+    },
+    {
+      "group": "gs_a_zoe_azure_gcp_caa_data_hprod_ptf_engineers",
+      "roles": ["role-audit-tenant"]
+    },
+      {
+      "group": "gs_a_caa01_azure_gcp_ptf_hprod_engineers",
+      "namespace": "ptfdata",
+      "roles": ["role-base", "role-operator", "role-dev-socle"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_ptf_hprod_engineers",
+      "roles": ["role-audit-tenant"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_data_hprod_dataloading",
+      "roles": ["role-base", "role-data-engineer"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_data_hprod_nrt_all_testers",
+      "roles": ["role-pipeline-launcher", "role-base"]
+    },
+    {
+      "group": "gs_a_zoe_azure_gcp_caa_data_hprod_auditors",
+      "roles": ["role-audit-tenant", "role-base"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_data_hprod_auditors",
+      "roles": ["role-audit-tenant", "role-base"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_data_hprod_appops",
+      "roles": ["role-appops", "role-base", "role-operator"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_data_hprod_secops",
+      "roles": ["role-audit-tenant", "role-base"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_kestra_hprod_admins",
+      "roles": ["role-admin-tenant", "role-base", "role-audit-tenant"]
+    },
+    {
+      "group": "gs_a_caa01_azure_gcp_ops_hprod_admins",
+      "roles": ["role-audit-tenant", "role-base"]
+    },
+    {
+      "group": "dev_api_flowfactory",
+      "roles": ["Api-flowfactory"]
+    },
+    {
+      "group": "developpeurs",
+      "roles": ["Developer"]
+    },
+    {
+      "group": "pipeline-factory-exec",
+      "namespace": "tech",
+      "roles": ["executor_pipeline_factory"]
+    },
+    {
+      "service_account": "sa-flow-kv-pipeline-factory",
+      "namespace": "ptfdata.flowfactory",
+      "roles": ["flow_kv_pipeline_factory"]
+    },
+    {
+      "service_account": "sa-exec-pipeline-factory",
+      "namespace": "tech",
+      "roles": ["executor_pipeline_factory"]
+    },
+    {
+      "service_account": "sa-flow-kv-data-domain",
+      "roles": ["data-domain-kv-store-updater"]
+    },
+      {
+      "service_account": "sa-dev-flowfactory",
+      "roles": ["Api-flowfactory"]
+      }
+  ]
+}
